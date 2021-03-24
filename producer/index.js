@@ -22,11 +22,11 @@ fastify.get('/order', async (request, reply) => {
   fastify.log.info('order submit success')
 
   reply.send({
-    status: 'order submittted successfully',
+    status: 'order sent successfully',
     order
   })
 })
 
-fastify.listen(HTTP_PORT, '0.0.0.0', (err, address) => {
+fastify.listen(HTTP_PORT, '0.0.0.0', (err) => {
   if (err) throw err
 })
