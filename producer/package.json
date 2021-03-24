@@ -22,6 +22,7 @@
     "singleQuote": true
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "env-var": "^7.0.0",
     "faker": "^5.4.0",
     "fastify": "^3.14.0",
@@ -30,7 +31,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
     "husky": "^4.3.8",
     "nodemon": "^2.0.7",
     "pino-pretty": "^4.7.1",
