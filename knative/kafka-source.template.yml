@@ -7,6 +7,7 @@ parameters:
   - name: KAFKA_BOOTSTRAP_URL
     required: true
 
+objects:
   - apiVersion: sources.knative.dev/v1beta1
     kind: KafkaSource
     metadata:

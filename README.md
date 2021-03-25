@@ -129,5 +129,5 @@ rhoas cluster connect
 KAFKA_BOOTSTRAP_URL=kafka-instance-abcxyz.kafka.devshift.org:443
 
 oc process -f knative/kafka.template.yml \
--p KAFKA_BOOTSTRAP_URL="${KAFKA_BOOTSTRAP_URL}" | oc create -f -
+-p KAFKA_BOOTSTRAP_URL=$KAFKA_BOOTSTRAP_URL | oc create -f -
 ```

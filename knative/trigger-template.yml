@@ -1,0 +1,46 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: trigger-template-producer
+spec:
+  params:
+  - name: git-revision
+  - name: git-commit-message
+  - name: git-repo-url
+  - name: git-repo-name
+  - name: content-type
+  - name: pusher-name
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      annotations: {}
+      generateName: producer-
+      labels:
+        app.kubernetes.io/instance: producer
+        pipeline.openshift.io/runtime: nodejs
+        pipeline.openshift.io/runtime-version: 14-ubi7
+        pipeline.openshift.io/type: kubernetes
+        tekton.dev/pipeline: producer
+      namespace: evan-demo
+    spec:
+      params:
+      - name: APP_NAME
+        value: producer
+      - name: GIT_REPO
+        value: https://github.com/evanshortiss/knative-kafka-demo/
+      - name: GIT_REVISION
+        value: master
+      - name: IMAGE_NAME
+        value: image-registry.openshift-image-registry.svc:5000/evan-demo/producer
+      - name: PATH_CONTEXT
+        value: producer
+      - name: MAJOR_VERSION
+        value: "12"
+      pipelineRef:
+        name: producer
+      resources: []
+      status: null
+      workspaces:
+      - emptyDir: {}
+        name: workspace
