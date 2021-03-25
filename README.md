@@ -3,7 +3,8 @@
 ## Requirements
 
 * Docker (for local development)
-* [Func (`func`)](https://github.com/boson-project/func/releases)
+* [Tekton CLI (`tkn`)](https://github.com/tektoncd/cli)
+* [Func CLI (`func`)](https://github.com/boson-project/func/releases)
 * [OpenShift CLI (`oc`)](https://docs.openshift.com/dedicated/4/cli_reference/openshift_cli/getting-started-cli.html)
 * OpenShift Dedicated (OSD) v4.6 Cluster
 * OpenShift Serverless v1.12 Operator installed on OSD

@@ -1,0 +1,17 @@
+apiVersion: binding.operators.coreos.com/v1alpha1
+kind: ServiceBinding
+metadata:
+  name: kafka-config
+spec:
+  application:
+    group: apps
+    name: producer
+    resource: deployments
+    version: v1
+
+  bindAsFiles: false
+  services:
+  - group: rhoas.redhat.com
+    version: v1alpha1
+    kind: KafkaConnection
+    name: sharedkafka
