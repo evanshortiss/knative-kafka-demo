@@ -46,4 +46,13 @@ if you'd like to avoid setting them in the shell.
 
 ### Deploy on OpenShift/Kubernetes
 
-TODO
+Requires an OpenShift 4.6 Cluster running the:
+
+  * OpenShift Pipelines Operator
+  * Service Binding Operator
+
+Login to the cluster using `oc` CLI then:
+
+1. Run `setup.producer.sh` script from the root of this repository.
+2. Wait for the script to finish. It will print GitHub webhook params.
+3. Configure a GitHub webhook (optional)
