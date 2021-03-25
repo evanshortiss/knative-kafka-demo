@@ -14,7 +14,7 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged --pattern \"**/*.ts\""
+      "pre-commit": "pretty-quick --staged --pattern \"**/*.js\""
     }
   },
   "prettier": {
