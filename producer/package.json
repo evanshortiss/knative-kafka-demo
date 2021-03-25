@@ -2,7 +2,7 @@
   "name": "producer",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "An application that sends fake e-commerce orders to a Kafka topic.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -r dotenv/config index.js dotenv_config_path=.env.local | pino-pretty",
