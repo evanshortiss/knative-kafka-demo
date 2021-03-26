@@ -25,6 +25,10 @@ oc process -f "${DIR}/producer/openshift/deployment.producer.yml" -p NAMESPACE=$
 # Expose a HTTPS route to the GitHub webhook POST endpoint
 oc create route edge --service el-event-listener-github
 
+# Create a route and service for the producer
+oc create route edge --service producer
+oc create service clusterip producer --tcp 8080:8080
+
 # Choose a Kafka instance and link it into the project
 rhoas kafka use $KAFKA_INSTANCE
 rhoas cluster connect --yes --token=$OCM_TOKEN
