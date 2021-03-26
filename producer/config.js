@@ -8,7 +8,7 @@ module.exports = {
   KAFKA_CLIENT_ID: get('KAFKA_CLIENT_ID').default('order-producer').asString(),
   KAFKA_TOPIC: get('KAFKA_TOPIC').default('orders').asString(),
 
-  KAFKA_SVC_USERNAME: get('KAFKACONNECTION_USER').example('srvc-acct-abc123-xyz').required().asString(),
-  KAFKA_SVC_PASSWORD: get('KAFKACONNECTION_PASSWORD').required().asString(),
-  KAFKA_BOOTSTRAP_URL: get('KAFKACONNECTION_BOOTSTRAPSERVERS').example('kafka-instance-abcxyz.kafka.devshift.org:443').required().asString()
+  KAFKACONNECTION_USER: get('KAFKACONNECTION_USER').example('srvc-acct-abc123-xyz').required().asString(),
+  KAFKACONNECTION_PASSWORD: get('KAFKACONNECTION_PASSWORD').required().asString(),
+  KAFKACONNECTION_BOOTSTRAPSERVERS: get('KAFKACONNECTION_BOOTSTRAPSERVERS').example('kafka-instance-abcxyz.kafka.devshift.org:443').required().asString()
 }
