@@ -1,7 +1,5 @@
 name: consumer
-namespace: "evan-summit-test"
 runtime: quarkus
-image: "quay.io/evanshortiss/summit-2021-quarkus-funq"
 imageDigest: ""
 trigger: http
 builder: quay.io/boson/faas-quarkus-jvm-builder
