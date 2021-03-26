@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Kafka Producer</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    /* Spinner source by Thomas Mandelid */
+    /* https://codepen.io/mandelid/pen/vwKoe */
+    #spinner {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(226, 171, 171, 0.3);
+      border-radius: 50%;
+      border-top-color: rgba(239, 68, 68);
+      animation: spin 1s ease-in-out infinite;
+      -webkit-animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes spin {
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-200 flex h-screen items-center justify-center">
+  <div id="spinner-container" style="min-height: 30vh" class="hidden -mt-14 bg-white p-8 sm:w-1/2 w-4/5 py-16 rounded shadow">
+    <div class="max-w-4xl m-auto block text-center">
+      <h2 class="m-auto mb-4 text-gray-700 text-2xl">Sending your Order</h2>
+      <div id="spinner" class="mt-8"></div>
+    </div>
+  </div>
+
+  <div id="result-container" style="min-height: 30vh" class="hidden -mt-14 bg-white p-8 sm:w-1/2 w-4/5 py-16 rounded shadow">
+    <div class="max-w-4xl m-auto block text-center">
+      <h2 class="text-6xl">📦</h2>
+      <h2 class="m-auto my-6 text-gray-700 text-2xl">Thank you for your purchase!</h2>
+      <p class="text-xs text-gray-400" id="order-num"></p>
+    </div>
+  </div>
+
+  <form name="order-form" class="sm:-mt-8 -mt-4">
+    <div class="bg-white mx-6 mt-8 sm:mt-12 sm:m-auto max-w-4xl shadow overflow-hidden sm:rounded-lg">
+      <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          Order Details
+        </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          Personal details, pricing, and terms.
+        </p>
+      </div>
+      <div class="border-t border-gray-200">
+        <dl>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Full name
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              Jane Doe
+            </dd>
+          </div>
+          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Order
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              Cloud Developer Tooling
+            </dd>
+          </div>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Email address
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              janed@example.com
+            </dd>
+          </div>
+          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Price
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              $1,000
+            </dd>
+          </div>
+          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">
+              Terms
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <p>Create and deploy amazing workloads using Serverless, Pipelines, Kafka, and all of your favourite
+                runtimes.</p>
+              <br />
+              <p>Oh, and stay awesome <span class="text-xl">😎</span></p>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <input
+      class="block my-10 m-auto transition transform hover:scale-125 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+      type="submit" value="Submit Order">
+  </form>
+  <script src="public/index.js"></script>
+</body>
+
+</html>
