@@ -2,7 +2,7 @@
 
 const log = require('./log')
 const { Kafka } = require('kafkajs')
-const { KAFKA_BOOTSTRAP_URL, KAFKA_CLIENT_ID, KAFKA_TOPIC, KAFKA_SVC_USERNAME, KAFKA_SVC_PASSWORD } = require('./config')
+const { KAFKACONNECTION_BOOTSTRAPSERVERS, KAFKA_CLIENT_ID, KAFKA_TOPIC, KAFKACONNECTION_USER, KAFKACONNECTION_PASSWORD } = require('./config')
 
 const kafka = new Kafka(getKafkaConfig())
 const producer = kafka.producer()
@@ -36,16 +36,16 @@ exports.send = async (order) => {
 function getKafkaConfig () {
   const config = {
     clientId: KAFKA_CLIENT_ID,
-    brokers: [KAFKA_BOOTSTRAP_URL]
+    brokers: [KAFKACONNECTION_BOOTSTRAPSERVERS]
   }
 
-  if (KAFKA_SVC_USERNAME && KAFKA_SVC_PASSWORD) {
-    log.info('Found KAFKA_SVC_USERNAME and KAFKA_SVC_PASSWORD in the environment. Enabling SSL and SASL PLAIN')
+  if (KAFKACONNECTION_USER && KAFKACONNECTION_PASSWORD) {
+    log.info('Found KAFKACONNECTION_USER and KAFKACONNECTION_PASSWORD in the environment. Enabling SSL and SASL PLAIN')
     config.ssl = true
     config.sasl = {
       mechanism: 'plain',
-      username: KAFKA_SVC_USERNAME,
-      password: KAFKA_SVC_PASSWORD
+      username: KAFKACONNECTION_USER,
+      password: KAFKACONNECTION_PASSWORD
     }
   }
 
