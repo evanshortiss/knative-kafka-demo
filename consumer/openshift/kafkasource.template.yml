@@ -34,4 +34,4 @@ objects:
         ref:
           apiVersion: serving.knative.dev/v1
           kind: Service
-          name: consumer
+          name: bonus-scoring

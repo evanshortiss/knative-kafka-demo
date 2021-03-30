@@ -6,9 +6,9 @@ public class Function {
 
     @Funq
     public Output function(Input input) {
-        String msg = "processed order: " + input.getOrderId();
+        String msg = "processed bonus for player: " + input.getBy().getUsername();
         System.out.println(msg);
-        return new Output("processed order: " + input.getOrderId());
+        return new Output("processed bonus for player: " + input.getBy().getUsername());
     }
 
 }

@@ -2,6 +2,7 @@ package functions;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,127 +12,76 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "orderId",
-    "firstname",
-    "lastname",
-    "email",
-    "phone",
-    "total",
-    "datetime",
-    "product",
-    "address"
+    "match",
+    "game",
+    "shots",
+    "human",
+    "by"
 })
+@Generated("jsonschema2pojo")
 public class Input {
 
-    @JsonProperty("orderId")
-    private String orderId;
-    @JsonProperty("firstname")
-    private String firstname;
-    @JsonProperty("lastname")
-    private String lastname;
-    @JsonProperty("email")
-    private String email;
-    @JsonProperty("phone")
-    private String phone;
-    @JsonProperty("total")
-    private Double total;
-    @JsonProperty("datetime")
-    private String datetime;
-    @JsonProperty("product")
-    private Product product;
-    @JsonProperty("address")
-    private Address address;
+    @JsonProperty("match")
+    private String match;
+    @JsonProperty("game")
+    private String game;
+    @JsonProperty("shots")
+    private String shots;
+    @JsonProperty("human")
+    private Boolean human;
+    @JsonProperty("by")
+    private By by;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("orderId")
-    public String getOrderId() {
-        return orderId;
+    @JsonProperty("match")
+    public String getMatch() {
+        return match;
     }
 
-    @JsonProperty("orderId")
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    @JsonProperty("match")
+    public void setMatch(String match) {
+        this.match = match;
     }
 
-    @JsonProperty("firstname")
-    public String getFirstname() {
-        return firstname;
+    @JsonProperty("game")
+    public String getGame() {
+        return game;
     }
 
-    @JsonProperty("firstname")
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    @JsonProperty("game")
+    public void setGame(String game) {
+        this.game = game;
     }
 
-    @JsonProperty("lastname")
-    public String getLastname() {
-        return lastname;
+    @JsonProperty("shots")
+    public String getShots() {
+        return shots;
     }
 
-    @JsonProperty("lastname")
-    public void setLastname(String lastname) {
-    this.lastname = lastname;
+    @JsonProperty("shots")
+    public void setShots(String shots) {
+        this.shots = shots;
     }
 
-    @JsonProperty("email")
-    public String getEmail() {
-        return email;
+    @JsonProperty("human")
+    public Boolean getHuman() {
+        return human;
     }
 
-    @JsonProperty("email")
-    public void setEmail(String email) {
-        this.email = email;
+    @JsonProperty("human")
+    public void setHuman(Boolean human) {
+        this.human = human;
     }
 
-    @JsonProperty("phone")
-    public String getPhone() {
-        return phone;
+    @JsonProperty("by")
+    public By getBy() {
+        return by;
     }
 
-    @JsonProperty("phone")
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    @JsonProperty("total")
-    public Double getTotal() {
-        return total;
-    }
-
-    @JsonProperty("total")
-    public void setTotal(Double total) {
-        this.total = total;
-    }
-
-    @JsonProperty("datetime")
-    public String getDatetime() {
-        return datetime;
-    }
-
-    @JsonProperty("datetime")
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
-    }
-
-    @JsonProperty("product")
-    public Product getProduct() {
-        return product;
-    }
-
-    @JsonProperty("product")
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    @JsonProperty("address")
-    public Address getAddress() {
-        return address;
-    }
-
-    @JsonProperty("address")
-    public void setAddress(Address address) {
-        this.address = address;
+    @JsonProperty("by")
+    public void setBy(By by) {
+        this.by = by;
     }
 
     @JsonAnyGetter
