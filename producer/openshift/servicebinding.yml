@@ -4,7 +4,7 @@ metadata:
   name: kafka-config
 spec:
   application:
-    group: apps
+    group: producer
     name: producer
     resource: deployments
     version: v1

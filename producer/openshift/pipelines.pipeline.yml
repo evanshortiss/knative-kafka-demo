@@ -34,7 +34,7 @@ objects:
       labels:
         app.kubernetes.io/instance: producer
         pipeline.openshift.io/runtime: nodejs
-        pipeline.openshift.io/runtime-version: 14-ubi7
+        pipeline.openshift.io/runtime-version: 14-ubi8
         pipeline.openshift.io/type: kubernetes
       name: producer
     spec:
@@ -130,7 +130,7 @@ objects:
           labels:
             app.kubernetes.io/instance: producer
             pipeline.openshift.io/runtime: nodejs
-            pipeline.openshift.io/runtime-version: 14-ubi7
+            pipeline.openshift.io/runtime-version: 14-ubi8
             pipeline.openshift.io/type: kubernetes
             tekton.dev/pipeline: producer
           namespace: ${NAMESPACE}

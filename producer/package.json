@@ -24,12 +24,10 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "env-var": "^7.0.0",
-    "faker": "^5.4.0",
     "fastify": "^3.14.0",
-    "fastify-static": "^4.0.1",
     "kafkajs": "^1.15.0",
-    "pino": "^6.11.2",
-    "uuid": "^8.3.2"
+    "nanoid": "^3.1.22",
+    "pino": "^6.11.2"
   },
   "devDependencies": {
     "husky": "^4.3.8",

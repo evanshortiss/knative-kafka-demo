@@ -8,23 +8,22 @@ const kafka = new Kafka(getKafkaConfig())
 const producer = kafka.producer()
 
 /**
- * Send an order to Kafka.
- * Orders are keyed using the customer email.
- * @param {Order} order
+ * Send an array of bonus shot payloads to Kafka.
+ * @param {Object} shots
  */
-exports.send = async (order) => {
+exports.send = async (shots) => {
   await producer.connect()
 
-  const msg = {
-    key: order.email,
-    value: JSON.stringify(order)
-  }
-
-  log.debug('sending message to kafka: %j', msg)
+  log.debug('sending shots to kafka: %j', shots)
 
   await producer.send({
     topic: KAFKA_TOPIC,
-    messages: [msg]
+    messages: shots.map((shot) => {
+      return {
+        key: `${shot.match}:${shot.by.uuid}`,
+        value: JSON.stringify(shot)
+      }
+    })
   })
 }
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-NAMESPACE=${NAMESPACE:-knative-kafka-producer}
+NAMESPACE=${NAMESPACE:-bonus-score-producer}
 
 if [[ -z "${OCM_TOKEN}" ]]; then
   echo "Please set OCM_TOKEN environment variable using a token from cloud.redhat.com/openshift/token"
@@ -22,12 +22,17 @@ oc process -f "${DIR}/producer/openshift/pipelines.pipeline.yml" -p NAMESPACE=$N
 # Create a deployment that uses the image output by the Pipeline
 oc process -f "${DIR}/producer/openshift/deployment.producer.yml" -p NAMESPACE=$NAMESPACE | oc create -f -
 
+echo "Wait for services to create..."
+sleep 5
+
 # Expose a HTTPS route to the GitHub webhook POST endpoint
+echo "Creating GitHub listener Route..."
 oc create route edge --service el-event-listener-github
 
 # Create a route and service for the producer
-oc create route edge --service producer
+echo "Creating producer application Route..."
 oc create service clusterip producer --tcp 8080:8080
+oc create route edge --service producer
 
 # Choose a Kafka instance and link it into the project
 rhoas kafka use $KAFKA_INSTANCE
