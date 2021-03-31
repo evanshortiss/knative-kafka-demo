@@ -23,7 +23,6 @@ objects:
     kind: Secret
     metadata:
       name: producer-github-webhook-secret
-      namespace: knative-kafka-producer
     data:
       WebHookSecretKey: OWNjMTRkNDRlZGI2YjExZQ==
     type: Opaque

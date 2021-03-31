@@ -43,7 +43,7 @@ objects:
             deploymentconfig: producer
         spec:
           containers:
-          - image: image-registry.openshift-image-registry.svc:5000/${NAMESPACE}/producer
+          - image: image-registry.openshift-image-registry.svc:5000/${NAMESPACE}/producer:latest
             imagePullPolicy: Always
             name: producer
             ports:
