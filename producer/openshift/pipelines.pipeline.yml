@@ -53,7 +53,7 @@ objects:
         - default: producer
           name: PATH_CONTEXT
           type: string
-        - default: '12'
+        - default: '14'
           name: MAJOR_VERSION
           type: string
       tasks:
@@ -146,7 +146,7 @@ objects:
           - name: PATH_CONTEXT
             value: producer
           - name: MAJOR_VERSION
-            value: "12"
+            value: "14"
           pipelineRef:
             name: producer
           resources: []
