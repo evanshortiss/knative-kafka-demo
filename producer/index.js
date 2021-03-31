@@ -10,13 +10,19 @@ const fastify = require('fastify')({
 
 let interval
 
+fastify.get('/bonus/clear', async (request, reply) => {
+  clearInterval(interval)
+
+  reply.send('ok')
+})
+
 fastify.get('/bonus/single', async (request, reply) => {
   await kafka.send([generateShot()])
 
   reply.send('ok')
 })
 
-fastify.get('/bonus', async (request, reply) => {
+fastify.get('/bonus/multi', async (request, reply) => {
   const count = parseInt(request.query.count)
 
   if (isNaN(count) || count <= 0) {
