@@ -12,6 +12,8 @@ const KAFKA_VARNAMES = [
 if (process.env.KAFKACONNECTION_BOOTSTRAPSERVERS) {
   module.exports = KAFKA_VARNAMES.reduce((contents, varname) => {
     contents[varname] = process.env[varname]
+
+    return contents
   }, {})
 } else {
   const ALL_BINDINGS_FOLDER_NAME = '/bindings'
