@@ -1,19 +1,19 @@
 package functions;
 
 public class Output {
-    private String message;
+    private Integer score;
 
     public Output() {}
 
-    public Output(String message) {
-        this.message = message;
+    public Output(Integer shots) {
+        this.score = shots * 5;
     }
 
-    public String getMessage() {
-        return message;
+    public Integer getScore() {
+        return score;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -26,7 +27,7 @@ public class Input {
     @JsonProperty("game")
     private String game;
     @JsonProperty("shots")
-    private String shots;
+    private Integer shots;
     @JsonProperty("human")
     private Boolean human;
     @JsonProperty("by")
@@ -55,12 +56,12 @@ public class Input {
     }
 
     @JsonProperty("shots")
-    public String getShots() {
+    public Integer getShots() {
         return shots;
     }
 
     @JsonProperty("shots")
-    public void setShots(String shots) {
+    public void setShots(Integer shots) {
         this.shots = shots;
     }
 

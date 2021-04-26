@@ -13,24 +13,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @QuarkusTest
 public class FunctionTest {
-    final static String json = "{\"orderId\":\"8eecdbca-c17f-448d-b3e8-8f34e5388a00\",\"firstname\":\"Max\",\"lastname\":\"Lueilwitz\",\"address\":{\"name\":\"Max Lueilwitz\",\"street\":\"0823 Annabell Wall\",\"unit\":\"Suite 226\",\"city\":\"Marcelinoton\",\"country\":\"Slovenia\",\"zipcode\":\"96466-5558\"},\"email\":\"Max_Lueilwitz@example.com\",\"phone\":\"1-267-559-6370 x023\",\"product\":{\"id\":\"6d15877c-2ffa-40fc-825b-d0f97cc0f9b2\",\"department\":\"Industrial\",\"price\":\"377.00\",\"quantity\":1},\"total\":377,\"datetime\":\"2021-03-15T22:36:23.038Z\"}";
+    final static String json = "{\"match\":\"qnSwtjPzSO6tf4kNDmn3V\",\"game\":\"w38nSZQmG8ZlroWU6tiD-\",\"by\":{\"username\":\"Charm Snagglefoot\",\"uuid\":\"ntySV2RY5VNIOphGGWdnZ\"},\"shots\":3,\"human\":false}";
+
     @Test
-    void testFunction() throws JsonMappingException, JsonProcessingException {
+    void testFunction() throws JsonMappingException, JsonProcessingException, InterruptedException {
         ObjectMapper objectMapper = new ObjectMapper();
         Input input = objectMapper.readValue(json, Input.class);
         Output output = (new Function()).function(input);
-        Assertions.assertEquals("8eecdbca-c17f-448d-b3e8-8f34e5388a00", output.getMessage());
+        System.out.println(output.getScore());
+        Assertions.assertEquals(output.getScore(), 15);
     }
 
     @Test
     public void testFunctionIntegration() {
         RestAssured.given().contentType("application/json")
-                .body("{\"orderId\": \"Hello\"}")
+                .body(json)
                 .header("ce-id", "42")
                 .header("ce-specversion", "1.0")
                 .post("/")
                 .then().statusCode(200)
-                .body("message", equalTo("received order: Hello"));
+                .body("score", equalTo(15));
     }
 
 }

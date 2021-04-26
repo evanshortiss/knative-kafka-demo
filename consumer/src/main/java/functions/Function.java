@@ -1,17 +1,19 @@
 package functions;
 
+import org.jboss.logging.Logger;
 import io.quarkus.funqy.Funq;
 
 public class Function {
+    private static final Logger Log = Logger.getLogger(Function.class);
 
     @Funq
     public Output function(Input input) throws InterruptedException {
-        String msg = "processed bonus for player: " + input.getBy().getUsername();
-
         Thread.sleep(500);
-        System.out.println(msg);
+        Output output = new Output(input.getShots());
 
-        return new Output("processed bonus for player: " + input.getBy().getUsername());
+        Log.infov("User {0} scored {1} points", input.getBy().getUsername(), output.getScore());
+
+        return output;
     }
 
 }
