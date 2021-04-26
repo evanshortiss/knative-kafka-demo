@@ -10,16 +10,18 @@ const fastify = require('fastify')({
 
 let interval
 
-fastify.get('/bonus/clear', async (request, reply) => {
+fastify.get('/bonus/clear', (request, reply) => {
   clearInterval(interval)
 
   reply.send('ok')
 })
 
 fastify.get('/bonus/single', async (request, reply) => {
-  await kafka.send([generateShot()])
+  const shot = generateShot()
 
-  reply.send('ok')
+  await kafka.send([shot])
+
+  reply.send(shot)
 })
 
 fastify.get('/bonus/multi', async (request, reply) => {
