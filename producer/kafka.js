@@ -48,7 +48,7 @@ function getKafkaConfig () {
     }
   }
 
-  log.debug('kafka connection config: %j', config)
+  log.trace('kafka connection config: %j', config)
 
   return config
 }
