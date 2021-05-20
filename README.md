@@ -1,16 +1,17 @@
 # Red Hat OpenShift Streams and Knative Serving Demo
 
-Demonstrates sourcing events from a Kafka instance running on [Red Hat OpenShift Streams for Apache Kafka](https://cloud.redhat.com/beta/application-services/streams/kafkas),
+Demonstrates sourcing events from a Kafka instance running on [OpenShift Streams for Apache Kafka](https://cloud.redhat.com/beta/application-services/streams/kafkas),
 and processing them using a Quarkus application managed with Knative on and OpenShift Dedicated cluster.
+
+![Architecture](screenshots/architecture.png)
 
 ## Requirements
 
-### Software
+* Account on [cloud.redhat.com](https://cloud.redhat.com/)
+* OpenShift Dedicated (OSD) v4.7 Cluster (4.8 for new Topology View features)
 * [Red Hat OpenShift Application Services CLI (`rhoas`)](https://github.com/redhat-developer/app-services-guides/tree/main/rhoas-cli)
 * [Knative CLI (`kn`)](https://knative.dev/v0.20-docs/install/install-kn/)
 * [OpenShift CLI (`oc`)](https://docs.openshift.com/dedicated/4/cli_reference/openshift_cli/getting-started-cli.html)
-* Account on [cloud.redhat.com](https://cloud.redhat.com/)
-* OpenShift Dedicated (OSD) v4.8 Cluster
 * [Optional] [Func CLI (`func`)](https://github.com/boson-project/func/releases)
 
 ## Local Development
