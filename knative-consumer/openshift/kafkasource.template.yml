@@ -16,7 +16,7 @@ objects:
       bootstrapServers:
         - ${KAFKA_BOOTSTRAP_URL}
       topics:
-        - orders
+        - shots
       net:
         sasl:
           enable: true
