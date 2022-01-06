@@ -18,7 +18,7 @@ public class FunctionTest {
     @Test
     void testFunction() throws JsonMappingException, JsonProcessingException, InterruptedException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Input input = objectMapper.readValue(json, Input.class);
+        Shot input = objectMapper.readValue(json, Shot.class);
         Output output = (new Function()).function(input);
         System.out.println(output.getScore());
         Assertions.assertEquals(output.getScore(), 15);
