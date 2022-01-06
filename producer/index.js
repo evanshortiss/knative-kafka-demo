@@ -8,7 +8,7 @@ const fastify = require('fastify')({
   logger: log
 });
 
-fastify.get('/bonus/', async (request, reply) => {
+fastify.get('/bonus', async (request, reply) => {
   // Generate a random shot payload
   const shot = generateShot();
 
